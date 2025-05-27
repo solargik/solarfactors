@@ -1,0 +1,18 @@
+name: Dependabot Auto Close Low Severity Alerts
+
+on:
+  pull_request:
+    branches: ["main"]
+      
+# The sg-version is used to determine if the workflow file has changed and needs to be updated in the target repository.
+env:
+  sg-version: 1
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  call-workflow:
+    uses: solargik/devops-gh-actions/.github/workflows/auto_close_low_severity_dependabot_alerts.yml@main
+    secrets: inherit
